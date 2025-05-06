@@ -1,0 +1,124 @@
+rs.status()
+use admin
+exit
+  operationTime: Timestamp({ t: 1746537834, i: 1 })
+  },
+    }
+      keyId: Long('0')
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+    signature: {
+    clusterTime: Timestamp({ t: 1746537834, i: 1 }),
+  '$clusterTime': {
+  ok: 1,
+  ],
+    }
+      configTerm: 0
+      configVersion: 1,
+      infoMessage: '',
+      syncSourceId: -1,
+      syncSourceHost: '',
+      lastHeartbeatMessage: '',
+      pingMs: Long('0'),
+      lastHeartbeatRecv: ISODate('2025-05-06T13:24:03.349Z'),
+      lastHeartbeat: ISODate('2025-05-06T13:24:03.772Z'),
+      lastWrittenWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+      lastDurableWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+      lastAppliedWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+      optimeWrittenDate: ISODate('2025-05-06T13:23:54.000Z'),
+      optimeDurableDate: ISODate('2025-05-06T13:23:54.000Z'),
+      optimeDate: ISODate('2025-05-06T13:23:54.000Z'),
+      optimeWritten: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+      optimeDurable: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+      optime: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+      uptime: 9,
+      stateStr: 'SECONDARY',
+      state: 2,
+      health: 1,
+      name: 'mongo3:27017',
+      _id: 2,
+    {
+    },
+      configTerm: 0
+      configVersion: 1,
+      infoMessage: '',
+      syncSourceId: -1,
+      syncSourceHost: '',
+      lastHeartbeatMessage: '',
+      pingMs: Long('0'),
+      lastHeartbeatRecv: ISODate('2025-05-06T13:24:03.333Z'),
+      lastHeartbeat: ISODate('2025-05-06T13:24:03.771Z'),
+      lastWrittenWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+      lastDurableWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+      lastAppliedWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+      optimeWrittenDate: ISODate('2025-05-06T13:23:54.000Z'),
+      optimeDurableDate: ISODate('2025-05-06T13:23:54.000Z'),
+      optimeDate: ISODate('2025-05-06T13:23:54.000Z'),
+      optimeWritten: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+      optimeDurable: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+      optime: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+      uptime: 9,
+      stateStr: 'SECONDARY',
+      state: 2,
+      health: 1,
+      name: 'mongo2:27017',
+      _id: 1,
+    {
+    },
+      lastHeartbeatMessage: ''
+      self: true,
+      configTerm: 0,
+      configVersion: 1,
+      infoMessage: '',
+      syncSourceId: -1,
+      syncSourceHost: '',
+      lastWrittenWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+      lastDurableWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+      lastAppliedWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+      optimeWrittenDate: ISODate('2025-05-06T13:23:54.000Z'),
+      optimeWritten: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+      optimeDate: ISODate('2025-05-06T13:23:54.000Z'),
+      optime: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+      uptime: 226,
+      stateStr: 'SECONDARY',
+      state: 2,
+      health: 1,
+      name: 'mongo1:27017',
+      _id: 0,
+    {
+  members: [
+  lastStableRecoveryTimestamp: Timestamp({ t: 1746537834, i: 1 }),
+  },
+    lastWrittenWallTime: ISODate('2025-05-06T13:23:54.218Z')
+    lastDurableWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+    lastAppliedWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+    writtenOpTime: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+    durableOpTime: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+    appliedOpTime: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+    readConcernMajorityOpTime: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+    lastCommittedWallTime: ISODate('2025-05-06T13:23:54.218Z'),
+    lastCommittedOpTime: { ts: Timestamp({ t: 1746537834, i: 1 }), t: Long('-1') },
+  optimes: {
+  writableVotingMembersCount: 3,
+  votingMembersCount: 3,
+  writeMajorityCount: 2,
+  majorityVoteCount: 2,
+  heartbeatIntervalMillis: Long('2000'),
+  syncSourceId: -1,
+  syncSourceHost: '',
+  term: Long('0'),
+  myState: 2,
+  date: ISODate('2025-05-06T13:24:03.773Z'),
+  set: 'rs0',
+{
+rs0 [direct: secondary] admin> rs.status()
+rs.status()
+})
+  ]
+    { _id: 2, host: "mongo3:27017" }
+    { _id: 1, host: "mongo2:27017" },
+    { _id: 0, host: "mongo1:27017" },
+  members: [
+  _id: "rs0",
+rs.initiate({
+use admin
+rs.status()

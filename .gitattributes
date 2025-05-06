@@ -1,0 +1,4 @@
+mongo1_data/journal/* filter=lfs diff=lfs merge=lfs -text
+mongo_data/journal/* filter=lfs diff=lfs merge=lfs -text
+mongo2_data/journal/* filter=lfs diff=lfs merge=lfs -text
+neo4j_data/transactions/* filter=lfs diff=lfs merge=lfs -text

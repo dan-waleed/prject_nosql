@@ -1,0 +1,163 @@
+{
+  "info": {
+    "name": "Healthcare System API",
+    "_postman_id": "abc12345-1234-5678-9012-abcdef123456",
+    "description": "Postman collection for MongoDB, InfluxDB, Redis, Cassandra, and Neo4j API routes.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "MongoDB - Get Patients",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/patients",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "patients"
+          ]
+        }
+      }
+    },
+    {
+      "name": "MongoDB - Add Patient",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": \"P001\",\n  \"name\": \"Ahmad Saleh\",\n  \"age\": 40,\n  \"gender\": \"male\",\n  \"medical_history\": [\n    \"hypertension\",\n    \"diabetes\"\n  ],\n  \"region\": \"North\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/patients",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "patients"
+          ]
+        }
+      }
+    },
+    {
+      "name": "InfluxDB - Add Vitals",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": \"P001\",\n  \"sensor_type\": \"heart_rate\",\n  \"value\": 78\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/vitals",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "vitals"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Redis - Add Alert",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": \"P001\",\n  \"message\": \"Heart rate dropped below 50\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/alerts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "alerts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Cassandra - Add Analytics",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": \"P001\",\n  \"avg_heart_rate\": 75.6\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/analytics",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "analytics"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Neo4j - Add Relation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": \"P001\",\n  \"patient_name\": \"Ahmad Saleh\",\n  \"doctor_id\": \"D001\",\n  \"doctor_name\": \"Dr. Rana\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/relation",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "relation"
+          ]
+        }
+      }
+    }
+  ]
+}

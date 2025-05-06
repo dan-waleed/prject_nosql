@@ -1,0 +1,19 @@
+exit
+})
+  region: "North"
+  medical_history: ["hypertension", "diabetes"],
+  gender: "male",
+  age: 40,
+  name: "Ahmad Saleh",
+  patient_id: "P001",
+db.patients.insertOne({
+use healthcare
+exit
+exite
+curl -X POST "http://localhost:8086/api/v2/write?org=healthcare&bucket=patient_metrics&precision=s" --header "Authorization: Token mytoken" --data-binary "vitals,patient_id=P001,sensor_type=heart_rate value=78"
+Expand-Archive .\influxdb2-client-2.7.5-windows-amd64.zip -DestinationPath 'C:\Program Files\InfluxData\'
+  --data-binary "vitals,patient_id=P001,sensor_type=heart_rate value=78"
+  --header "Authorization: Token mytoken" \
+curl -XPOST "http://localhost:8086/api/v2/write?org=healthcare&bucket=patient_metrics&precision=s" \
+db.patients.insertOne({ patient_id: "P001", name: "Ahmad Saleh", age: 40, gender: "male", medical_history: ["hypertension", "diabetes"], region: "North" })
+use healthcare
