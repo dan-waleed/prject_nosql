@@ -1,13 +1,3 @@
-casnadra_data
-
-casnadra1_data
-casnadra2_data
-influx_data
-mongo_data
-mongo1_data
-mongo2_data
-mongo3_data
-neo4j_data
-redis_data
-
-node_modules
+# Ignore MongoDB and Neo4j database folders
+mongo3_data/
+neo4j_data/
