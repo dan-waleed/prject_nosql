@@ -34,13 +34,3 @@ The system addresses the following:
 | **Redis** | Key-Value | Alerts | Low-latency caching, pub/sub for alerts | Limited querying capabilities |
 
 ---
-
-## Data Model
-- **MongoDB (Patients)**:
-  ```json
-  {
-    "_id": ObjectId,
-    "region": "north",
-    "name": "John Doe",
-    "medical_history": [{ "condition": "Hypertension", "diagnosed": ISODate }]
-  }
