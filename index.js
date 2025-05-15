@@ -8,7 +8,6 @@ const neo4j = require('neo4j-driver');
 
 const app = express();
 app.use(express.json());
-// تسجيل كل طلب يصل للسيرفر
 app.use((req, res, next) => {
   console.log(`➡️ ${req.method} ${req.url}`);
   next();
@@ -176,8 +175,20 @@ async function startServer() {
     mongoDB = mongoClient.db('healthcare');
     console.log('✅ Connected to MongoDB');
 
-    await cassandraClient.connect();
-    console.log('✅ Connected to Cassandra');
+    // Retry logic for Cassandra
+    let retries = 5;
+    while (retries > 0) {
+      try {
+        await cassandraClient.connect();
+        console.log('✅ Connected to Cassandra');
+        break;
+      } catch (err) {
+        console.error(`[Cassandra] Failed to connect, retries left: ${retries}`, err);
+        retries--;
+        if (retries === 0) throw err;
+        await new Promise(resolve => setTimeout(resolve, 5000)); // Wait 5 seconds
+      }
+    }
 
     app.listen(PORT, () => {
       console.log(`🚀 API server running at http://localhost:${PORT}`);
@@ -190,7 +201,6 @@ async function startServer() {
 
 startServer();
 
-// تأكّد في النهاية من إغلاق اتصال Neo4j عند الخروج
 process.on('SIGINT', async () => {
   await neo4jSession.close();
   await neo4jDriver.close();

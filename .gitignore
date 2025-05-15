@@ -1,3 +1,36 @@
-# Ignore MongoDB and Neo4j database folders
+# Node.js dependencies
+node_modules/
+
+# MongoDB data
+mongo_data/
+mongo_data/**/
+mongo1_data/
+mongo1_data/**/
+mongo2_data/
+mongo2_data/**/
 mongo3_data/
+mongo3_data/**/
+
+# Neo4j data
 neo4j_data/
+neo4j_data/**/
+
+# Cassandra data
+casnadra_data/
+casnadra_data/**/
+casnadra1_data/
+casnadra1_data/**/
+casnadra2_data/
+casnadra2_data/**/
+
+# InfluxDB data
+influx_data/
+influx_data/**/
+
+# Redis data
+redis_data/
+redis_data/**/
+
+# database files
+*.db
+
