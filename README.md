@@ -20,7 +20,6 @@ The system addresses the following:
 - **Fault Tolerance**: Handle node failures and network partitions.
 - **Performance**: Optimize with indexing, caching, and replication tuning.
 - **Prototype**: Data models, CRUD operations, queries, and fault tolerance demos.
-- **Presentation**: 20-minute overview of use case, implementation, and lessons learned.
 
 ---
 
