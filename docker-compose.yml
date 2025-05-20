@@ -1,3 +1,84 @@
+version: "3.8"
+
+services:
+  # MongoDB Replica Set
+  mongo1:
+    image: mongo:latest
+    container_name: mongo1
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo1_data:/data/db
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    networks:
+      - mongo_net
+
+  mongo2:
+    image: mongo:latest
+    container_name: mongo2
+    ports:
+      - "27018:27017"
+    volumes:
+      - ./mongo2_data:/data/db
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    networks:
+      - mongo_net
+
+  mongo3:
+    image: mongo:latest
+    container_name: mongo3
+    ports:
+      - "27019:27017"
+    volumes:
+      - ./mongo3_data:/data/db
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    networks:
+      - mongo_net
+
+  # InfluxDB
+  influxdb:
+    image: influxdb:2.7
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=admin123
+      - DOCKER_INFLUXDB_INIT_ORG=healthcare
+      - DOCKER_INFLUXDB_INIT_BUCKET=patient_metrics
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=mytoken
+    volumes:
+      - ./influx_data:/var/lib/influxdb2
+    networks:
+      - default
+
+  # Neo4j
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/password123
+    volumes:
+      - ./neo4j_data:/data
+    networks:
+      - default
+
+  # Redis
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis_data:/data
+    networks:
+      - default
+
+  # Cassandra Cluster Node 1
   cassandra1:
     image: cassandra:4.1
     container_name: cassandra1
@@ -6,10 +87,8 @@
     environment:
       - CASSANDRA_CLUSTER_NAME=healthcare-cluster
       - CASSANDRA_SEEDS=cassandra1
-      - CASSANDRA_LISTEN_ADDRESS=auto
-      - CASSANDRA_BROADCAST_ADDRESS=cassandra1
+      - CASSANDRA_LISTEN_ADDRESS=cassandra1
       - CASSANDRA_RPC_ADDRESS=0.0.0.0
-      - CASSANDRA_BROADCAST_RPC_ADDRESS=cassandra1
     volumes:
       - ./cassandra1_data:/var/lib/cassandra
     networks:
@@ -17,6 +96,7 @@
         aliases:
           - cassandra1
 
+  # Cassandra Cluster Node 2
   cassandra2:
     image: cassandra:4.1
     container_name: cassandra2
@@ -25,13 +105,25 @@
     environment:
       - CASSANDRA_CLUSTER_NAME=healthcare-cluster
       - CASSANDRA_SEEDS=cassandra1
-      - CASSANDRA_LISTEN_ADDRESS=auto
-      - CASSANDRA_BROADCAST_ADDRESS=cassandra2
+      - CASSANDRA_LISTEN_ADDRESS=cassandra2
       - CASSANDRA_RPC_ADDRESS=0.0.0.0
-      - CASSANDRA_BROADCAST_RPC_ADDRESS=cassandra2
     volumes:
       - ./cassandra2_data:/var/lib/cassandra
     networks:
       cassandra_net:
         aliases:
           - cassandra2
+
+volumes:
+  mongo1_data:
+  mongo2_data:
+  mongo3_data:
+  influx_data:
+  neo4j_data:
+  redis_data:
+  cassandra1_data:
+  cassandra2_data:
+
+networks:
+  mongo_net:
+  cassandra_net:
