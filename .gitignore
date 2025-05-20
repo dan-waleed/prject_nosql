@@ -34,3 +34,9 @@ redis_data/**/
 # database files
 *.db
 
+cassandra1_data/
+influxdb_data/
+mongo_data/
+redis_data/
+neo4j_data/
+node_modules/
